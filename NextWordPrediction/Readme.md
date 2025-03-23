@@ -28,13 +28,13 @@ This code implements a text prediction model using **LSTM networks** to predict 
 
 ## Functions
 
-### `get_data(filename)`
+### `load_text_data(file_path)`
 - **Purpose**: Load text data from a file.
 - **Parameters**:
   - `filename` (str): Path to the input text file.
 - **Returns**: Raw text as a string.
 
-### `preprocess_data(data)`
+### `preprocess_text(text)`
 - **Purpose**: Clean raw text.
 - **Steps**:
   1. Remove tabs/newlines.
@@ -43,11 +43,11 @@ This code implements a text prediction model using **LSTM networks** to predict 
   4. Trim extra spaces.
 - **Returns**: Cleaned text.
 
-### `remove_stopwords(data)`
+### `remove_stopwords(text)`
 - **Purpose**: Filter out English stopwords using NLTK.
 - **Returns**: Text with stopwords removed.
 
-### `tokenize_data(data, foldername)`
+### `create_tokenizer(text, save_path)`
 - **Purpose**: Tokenize text and save the tokenizer.
 - **Parameters**:
   - `foldername` (str): Directory to save the tokenizer (`goethe_without_stopwords.pkl`).
@@ -55,7 +55,7 @@ This code implements a text prediction model using **LSTM networks** to predict 
   - `sequence_data` (list): Tokenized integer sequence.
   - `vocab_size` (int): Vocabulary size.
 
-### `create_sequences(sequence_data, sequence_len, vocab_size, visualization_status)`
+### `generate_sequences(sequence, seq_len, vocab_size, shuffle)`
 - **Purpose**: Generate input-output sequences for training.
 - **Parameters**:
   - `sequence_len` (int): Context window size (e.g., 10 words).
@@ -69,11 +69,18 @@ This code implements a text prediction model using **LSTM networks** to predict 
 ## Model Architectures
 ### Bidirectional LSTM
 ```python
-def build_model_bidirectional_lstm(nodes, embedding_size, sequence_len, vocab_size):
-    model = Sequential()
-    model.add(Embedding(vocab_size, embedding_size, input_length=sequence_len))
-    model.add(Bidirectional(LSTM(nodes)))
-    model.add(Dense(vocab_size, activation='softmax'))
+def build_bidirectional_lstm(nodes, embedding_size, sequence_len, vocab_size):
+    model = Sequential([
+        Embedding(vocab_size, embedding_dim, input_length=seq_length),
+        Bidirectional(LSTM(lstm_units, return_sequences=False)),
+        Dense(vocab_size, activation='softmax')
+    ])
+    
+    model.compile(
+        loss='categorical_crossentropy',
+        optimizer=Adam(learning_rate=Config.LEARNING_RATE),
+        metrics=['accuracy']
+    )
     return model
 
 ### Double-Layer LSTM
@@ -119,7 +126,7 @@ def build_model_double_lstm(nodes, embedding_size, sequence_len, vocab_size):
 
 ### Run Pipeline
 ```python
-trainings_pipeline()  # Executes full training/evaluation workflow
+train_pipeline()  # Executes full training/evaluation workflow
 
 ### Hyperparameters (Customizable in trainings_pipeline())
   - `sequence_len`: Context window size (default: 10).
