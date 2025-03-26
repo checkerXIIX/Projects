@@ -106,7 +106,7 @@ This code implements a text prediction model using **LSTM networks** to predict 
     model.add(Dense(vocab_size, activation="softmax"))
     return model
 
-##Training & Evaluation
+## Training & Evaluation
 ### `train_model(model, X, y, epochs, batch_size, logdir, model_filename)`
 - **Purpose**: Train the model with callbacks.
 - **Callbacks**:

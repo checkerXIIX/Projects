@@ -42,12 +42,13 @@ The dashboard provides interactive visualization and analysis of personal financ
   - **Transport**: Blue tones
 
 2. Core Visualization Functions
-| Function      | Description | Output  |
-| ----------- | ----------- | ----------- |
-| `spending_by_category()` | Pie chart of expense distribution | Bokeh Figure |
-| `earnings_by_category()`   | Pie chart of income sources | Bokeh Figure |
-| `income_vs_expenses()`   | Dual-axis income/expense trend	 | Holoviews Overlay |
-| `account_balance_evolution()`   | Balance timeline chart | Holoviews Curve |
+
+| Function                    | Description                         | Output            |
+|-----------------------------|-------------------------------------|-------------------|
+| `spending_by_category()`    | Pie chart of expense distribution   | Bokeh Figure      |
+| `earnings_by_category()`    | Pie chart of income sources         | Bokeh Figure      |
+| `income_vs_expenses()`      | Dual-axis income/expense trend      | Holoviews Overlay |
+| `account_balance_evolution()` | Balance timeline chart             | Holoviews Curve   |
 
 3. Interactive Widgets
 - Breakdown of the Widgets used in the Dashboard
