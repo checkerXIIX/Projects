@@ -36,6 +36,10 @@ The dashboard provides interactive visualization and analysis of personal financ
 
 ## Main Components
 1. Color Mapping
+  - **Essentials**: Gray/Yellow tones
+  - **Lifestyle**: Red/Pink tones
+  - **Financial**: Green tones
+  - **Transport**: Blue tones
   ```python
   COLOR_MAPPING = {
       'Rent': '#95A5A6',
@@ -43,10 +47,6 @@ The dashboard provides interactive visualization and analysis of personal financ
       'Salary': '#95A5A6',
       # ... other category-color pairs
   }
-  - **Essentials**: Gray/Yellow tones
-  - **Lifestyle**: Red/Pink tones
-  - **Financial**: Green tones
-  - **Transport**: Blue tones
 
 2. Core Visualization Functions
 | Function      | Description | Output  |

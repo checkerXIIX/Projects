@@ -134,10 +134,11 @@ This code implements a text prediction model using **LSTM networks** to predict 
   ```bash
   pip install tensorflow nltk pandas matplotlib sklearn
   python -m nltk.downloader stopwords punkt
+
 2. **Prepare Data**: Place text file (e.g., 1661-0.txt) in the working directory.
 
 ### Run Pipeline
-- 
+- Execute function `train_pipline()` to start training and evaluation
   ```python
   train_pipeline()  # Executes full training/evaluation workflow
 
