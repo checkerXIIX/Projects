@@ -40,13 +40,6 @@ The dashboard provides interactive visualization and analysis of personal financ
   - **Lifestyle**: Red/Pink tones
   - **Financial**: Green tones
   - **Transport**: Blue tones
-  ```python
-  COLOR_MAPPING = {
-      'Rent': '#95A5A6',
-      'Utilities': '#778899',
-      'Salary': '#95A5A6',
-      # ... other category-color pairs
-  }
 
 2. Core Visualization Functions
 | Function      | Description | Output  |
