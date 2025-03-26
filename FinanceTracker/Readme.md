@@ -25,14 +25,14 @@ The dashboard provides interactive visualization and analysis of personal financ
    - WithoutSupport (float)
 
 ### Data Preparation:
-```python
-# Sample transaction data format
-transactions = pd.DataFrame({
-    'Date': ['2023-01-01', '2023-01-05'],
-    'Category': ['Groceries', 'Salary'],
-    'Amount': [-150.00, 3000.00],
-    'Type': ['Expense', 'Income']
-})
+- Sample transaction data format
+  ```python
+  transactions = pd.DataFrame({
+      'Date': ['2023-01-01', '2023-01-05'],
+      'Category': ['Groceries', 'Salary'],
+      'Amount': [-150.00, 3000.00],
+      'Type': ['Expense', 'Income']
+  })
 
 ## Main Components
 1. Color Mapping
@@ -57,11 +57,12 @@ transactions = pd.DataFrame({
 | `account_balance_evolution()`   | Balance timeline chart | Holoviews Curve |
 
 3. Interactive Widgets
- ```python
+- Breakdown of the Widgets used in the Dashboard
+  ```python
   # Date controls
   s_date_picker = pn.widgets.DatePicker(name='Start Date')
   e_date_picker = pn.widgets.DatePicker(name='End Date')
-  
+
   # Category selection
   category_selector = pn.widgets.Select(name='Select Category')
   
@@ -69,6 +70,7 @@ transactions = pd.DataFrame({
   switch = pn.widgets.Switch(name='Financial Support')
 
 4. Dashboard Layout
+- Breakdown of the Tabs available in the Dashboard
   ```python
   dashboard = pn.Tabs(
       ('Overview', ...),

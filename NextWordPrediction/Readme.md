@@ -68,24 +68,36 @@ This code implements a text prediction model using **LSTM networks** to predict 
 
 ## Model Architectures
 ### Bidirectional LSTM
-```python
-def build_bidirectional_lstm(nodes, embedding_size, sequence_len, vocab_size):
+- Build bidirectional LSTM model.
+- Architecture:
+  - Embedding Layer
+  - Bidirectional LSTM
+  - Dense Output Layer
+  ```python
+  def build_bidirectional_lstm(nodes, embedding_size, sequence_len, vocab_size):
     model = Sequential([
-        Embedding(vocab_size, embedding_dim, input_length=seq_length),
-        Bidirectional(LSTM(lstm_units, return_sequences=False)),
-        Dense(vocab_size, activation='softmax')
-    ])
-    
-    model.compile(
-        loss='categorical_crossentropy',
-        optimizer=Adam(learning_rate=Config.LEARNING_RATE),
-        metrics=['accuracy']
-    )
-    return model
+          Embedding(vocab_size, embedding_dim, input_length=seq_length),
+          Bidirectional(LSTM(lstm_units, return_sequences=False)),
+          Dense(vocab_size, activation='softmax')
+      ])
+      
+      model.compile(
+          loss='categorical_crossentropy',
+          optimizer=Adam(learning_rate=Config.LEARNING_RATE),
+          metrics=['accuracy']
+      )
+      return model
 
 ### Double-Layer LSTM
-```python
-def build_model_double_lstm(nodes, embedding_size, sequence_len, vocab_size):
+- Build Double-Layer LSTM model.
+- Architecture:
+  - Embedding Layer
+  - LSTM
+  - LSTM
+  - Dense Output Layer
+  - Dense Output Layer
+  ```python
+  def build_model_double_lstm(nodes, embedding_size, sequence_len, vocab_size):
     model = Sequential()
     model.add(Embedding(vocab_size, embedding_size, input_length=sequence_len))
     model.add(LSTM(nodes, return_sequences=True))
@@ -125,8 +137,9 @@ def build_model_double_lstm(nodes, embedding_size, sequence_len, vocab_size):
 2. **Prepare Data**: Place text file (e.g., 1661-0.txt) in the working directory.
 
 ### Run Pipeline
-```python
-train_pipeline()  # Executes full training/evaluation workflow
+- 
+  ```python
+  train_pipeline()  # Executes full training/evaluation workflow
 
 ### Hyperparameters (Customizable in trainings_pipeline())
   - `sequence_len`: Context window size (default: 10).
