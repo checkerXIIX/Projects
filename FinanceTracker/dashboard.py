@@ -528,4 +528,4 @@ dashboard = pn.Tabs(
 
 # Add interactivity
 dashboard = dashboard.servable()
-#dashboard.servable().show()
+
