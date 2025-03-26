@@ -91,27 +91,10 @@ The dashboard provides interactive visualization and analysis of personal financ
 
 ## Usage
 1. **Install Dependencies**
-  ```bash
-  pip install panel holoviews pandas bokeh
+  - `pip install panel holoviews pandas bokeh`
 
 2. **Run Dashboard**
-  ```bash
-  panel serve finance_dashboard.py --show
+  - `panel serve finance_dashboard.py --show`
 
 3. **Interact with Components**
   - Dashboard Interface
-
-## Customization
-1. **Update Color Scheme**
-  ```python
-  COLOR_MAPPING['Groceries'] = '#FF5733'  # Change category color
-
-2. **Add New Visualization**
-  ```python
-  def new_visualization():
-    return hv.Bars(data).opts(title='Custom View')
-  dashboard[0].append(new_visualization())
-
-3. **Modify Card Styles**
-  ```python
-  create_summary_card(..., styles={'background': '#f0f0f0'})
